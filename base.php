@@ -58,6 +58,8 @@ class DB{
 
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
+
+
     public function math($method,$col,...$arg){
         $sql="SELECT $method($col) FROM $this->table ";
 
@@ -82,10 +84,10 @@ class DB{
                 }
             break;
         }
-
-
         return $this->pdo->query($sql)->fetchColumn();
     }
+
+    
     public function save($array){
         if(isset($array['id'])){
             //update

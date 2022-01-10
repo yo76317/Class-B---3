@@ -2,8 +2,10 @@
 
 if(isset($_FILES['path']['tmp_name'])){
     $data['path']=$_FILES['path']['name'];
+    // dd($data);
+    // dd($_FILES);
     move_uploaded_file($_FILES['path']['tmp_name'],'../img/'.$data['path']);
-
+    
     $data['name']=$_POST['name'];
     $maxid=$Poster->math('max','id');
 
