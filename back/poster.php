@@ -1,4 +1,3 @@
-<div></div>
 <div>
     <h4 class='ct'>新增預告片海報</h4>
     <form action="api/add_poster.php" method="post" enctype="multipart/form-data">
