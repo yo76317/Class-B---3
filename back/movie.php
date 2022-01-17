@@ -46,11 +46,25 @@ foreach ($mos as $key => $movie) {
 
 </div>
 <script>
-$(".show").on("click",function(){
-    let id=$(this).data("id");
+$(".show").on("click",function(e){
+    let id=$(e.target).data("id");
     $.post("api/show.php",{id},()=>{
         location.reload();
     })
 })
 
-</script> 
+/* $(".show").on("click",(e)=>{
+    let id=$(e.target).data("id");
+    $.post("api/show.php",{id},()=>{
+        location.reload();
+    })
+}) */
+
+
+/* $(".show").on("click",function(){
+   
+    let id=$(this).data("id");
+    $.post("api/show.php",{id},()=>{
+        location.reload();
+    })
+}) */
