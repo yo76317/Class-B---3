@@ -49,6 +49,7 @@
 getMovies(id)
 
 $("#movie").on("change",()=>{getDays()})
+$("#date").on("change",()=>{getSessions()})
 
 function getMovies(id){
     $.get("api/get_movies.php",{id},(movies)=>{

@@ -66,4 +66,23 @@ $session=$ss[$_GET['session']];
         <button onclick="prev()">回上一步</button>
         <button >完成訂購</button>
     </div>
-</div> 
+</div>
+
+<script>
+let seats=new Array();
+
+$(".check").on('click',function(){
+    if($(this).prop('checked')){
+        if(seats.length<4){
+            seats.push($(this).val())
+        }else{
+            alert("最多只能勾選四張票")
+            $(this).prop('checked',false)
+        }
+    }else{
+         seats.splice(seats.indexOf($(this).val()),1)
+    }
+    $("#tickets").text(seats.length)
+})
+
+</script> 
