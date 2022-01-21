@@ -35,13 +35,38 @@
 </div>
 <div class="row">
     <div class="ct" style="width:100%">
-        <button>確定</button><button>重置</button>
+        <button onclick="booking()">確定</button>
+        <button onclick="reset()">重置</button>
     </div>
     
 </div>
 </div>
 <script>
-$.get("api/get_movies.php",(movies)=>{
-    $("#movie").html(movies)
-})
+    let id=(new URL(location)).searchParams.get('id');
+getMovies(id)
+
+$("#movie").on("change",()=>{getDays()})
+
+function getMovies(id){
+    $.get("api/get_movies.php",{id},(movies)=>{
+        $("#movie").html(movies)
+        getDays()
+    })
+}
+
+function getDays(){
+    let id=$("#movie").val();
+    $.get("api/get_days.php",{id},(days)=>{
+        $("#date").html(days)
+    })
+}
+
+function booking(){
+    
+}
+
+function reset(){
+    getMoveies(id)
+}
+
 </script> 
