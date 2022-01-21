@@ -41,6 +41,9 @@
     
 </div>
 </div>
+<div id="booking" style="display:none"></div>
+
+
 <script>
     let id=(new URL(location)).searchParams.get('id');
 getMovies(id)
@@ -68,13 +71,21 @@ function getSessions(){
         $("#session").html(sessions)
     })
 }
-
 function booking(){
-
+    $("#order,#booking").toggle()
+    let order={id:$("#movie").val(),
+               date:$("#date").val(),
+               session:$("#session").val()}
+    $.get("api/booking.php",order,(booking)=>{
+        $("#booking").html(booking)
+    })
 }
-
 function reset(){
-    getMoveies(id)
+    getMovies(id)
+}
+function prev(){
+    $("#order,#booking").toggle()
+    $("#booking").html("");
 }
 
 </script> 
